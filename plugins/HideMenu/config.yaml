@@ -1,0 +1,12 @@
+id  : HideMenu
+key : hidemenu
+name: HideMenu
+version: 0.1
+author_name: Alfasado Inc.
+author_link: http://alfasado.net/
+description: '<__trans phrase="Hide menu items.">'
+l10n_class: HideMenu::L10N
+callbacks:
+    MT::App::CMS::pre_run:
+        - handler: $hidemenu::HideMenu::Plugin::_pre_run
+          priority: 10
