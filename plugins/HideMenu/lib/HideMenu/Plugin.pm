@@ -4,6 +4,11 @@ use strict;
 
 sub _pre_run {
     my $app = MT->instance;
+    my $blog = $app->blog;
+    my $current_scope = 'system';
+    if ( $blog ) {
+        $current_scope = $blog->class;
+    }
     my $core = MT->component( 'core' );
     my $cr = $core->registry( 'applications', 'cms', 'menus' );
     my $hidemenu = $app->config( 'HideMenus' );
@@ -12,7 +17,9 @@ sub _pre_run {
         if (! $app->blog ) {
             $cr->{ $menu } = { view => [ 'blog' ] };
         } else {
-            $cr->{ $menu } = {};
+            if ( exists $cr->{ $menu }->{ view } ) {
+                $cr->{ $menu }->{ view } = ( $current_scope eq 'blog' ) ? 'website' : 'blog';
+            }
         }
     }
     return 1;
