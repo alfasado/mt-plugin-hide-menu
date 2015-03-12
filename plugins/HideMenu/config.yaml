@@ -6,6 +6,10 @@ author_name: Alfasado Inc.
 author_link: http://alfasado.net/
 description: '<__trans phrase="Hide menu items.">'
 l10n_class: HideMenu::L10N
+config_settings:
+    HideMenus:
+        default: ''
+        updatable: 1
 callbacks:
     MT::App::CMS::pre_run:
         - handler: $hidemenu::HideMenu::Plugin::_pre_run
