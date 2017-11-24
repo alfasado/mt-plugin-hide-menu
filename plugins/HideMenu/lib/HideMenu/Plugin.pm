@@ -9,11 +9,7 @@ sub _pre_run {
     my $hidemenu = $app->config( 'HideMenus' );
     my @memus = split( /,/, $hidemenu );
     for my $menu ( @memus ) {
-        if (! $app->blog ) {
-            $cr->{ $menu } = { view => [ 'blog' ] };
-        } else {
-            $cr->{ $menu } = {};
-        }
+        $cr->{ $menu } = { display => 0 };
     }
     return 1;
 }
