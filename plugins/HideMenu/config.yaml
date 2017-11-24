@@ -1,7 +1,7 @@
 id  : HideMenu
 key : hidemenu
 name: HideMenu
-version: 0.1
+version: 0.2
 author_name: Alfasado Inc.
 author_link: http://alfasado.net/
 description: '<__trans phrase="Hide menu items.">'
